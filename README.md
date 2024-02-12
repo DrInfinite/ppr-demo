@@ -1,36 +1,41 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Next.js Partial Prerendering Demo
 
-## Getting Started
+This is a demo of React and Next.js using Partial Prerendering).
 
-First, run the development server:
+This sample uses the new Next.js App Router and the experimental Partial Prerendering feature available in Next.js 14. Partial Prerendering combines ultra-quick static edge delivery with fully dynamic capabilities, bringing together the best of static site generation and dynamic delivery.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+Here is a full breakdown of its core features
+
+![image](https://vercel.com/_next/image?url=https%3A%2F%2Fimages.ctfassets.net%2Fe5382hct74si%2F5VDyzuymkOUuQVo1ECuayK%2F051b687701d68d1590068323eeb0be30%2FGraphic_1_-_Dark.png&w=1080&q=75&dpl=dpl_7BsSCkzUxGRMVFVmKbSPAgMRzoUt)
+
+> ⚠️ PPR is an experimental technology and is not recommended for production.
+
+## How it works
+
+The index route `/` uses Partial Prerendering through:
+
+1. Enabling the experimental flag in `next.config.js`.
+
+```js
+experimental: {
+    ppr: true,
+},
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Using `<Suspense />` to wrap Dynamic content.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+The below image distinguishes between the static and dynamic parts of the page, showing the true potential of PPR
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+![image](https://vercel.com/_next/image?url=https%3A%2F%2Fimages.ctfassets.net%2Fe5382hct74si%2F19oHbnORNyZdAYAxuzQHbP%2F4e7196649e205805d8ef419da4e25d6d%2Fthinking-in-server-components.png&w=828&q=75&dpl=dpl_7BsSCkzUxGRMVFVmKbSPAgMRzoUt)
 
-## Learn More
+### The final build output should look as follows:
 
-To learn more about Next.js, take a look at the following resources:
+> ![screenshot](./public/Screenshot%202024-02-12%20155253.png)
 
--   [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
--   [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Further Reading
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+[Announcement: Partial Prerendering (NEXT.js CONF 2023)](https://vercel.com/blog/partial-prerendering-with-next-js-creating-a-new-default-rendering-model)
 
-## Deploy on Vercel
+[Docs: Partial Prerendering (experimental)](https://nextjs.org/docs/app/api-reference/next-config-js/partial-prerendering)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+[Learn: Partial Prerendering](https://nextjs.org/learn/dashboard-app/partial-prerendering)
