@@ -22,7 +22,7 @@ export default function Byline({ className }: { className: string }) {
         <div className="text-sm text-gray-400">
           <a
             className="underline decoration-dotted underline-offset-4 transition-colors hover:text-gray-300"
-            href=""
+            href="https://github.com/DrInfinite/ppr-demo"
             target="_blank"
             rel="noreferrer"
           >
